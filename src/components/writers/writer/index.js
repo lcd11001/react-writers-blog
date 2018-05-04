@@ -6,7 +6,6 @@ export default class Writer extends Component {
     render() {
         // console.log(props)
         let {
-            id,
             name,
             born,
             deceased,

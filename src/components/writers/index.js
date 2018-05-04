@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react'
-import { NavLink as Link, Route } from 'react-router-dom'
+import { NavLink as Link, Route, Redirect } from 'react-router-dom'
 
 import Writer from './writer'
+import NotFound from '../errors/404'
 
 export default (props) => {
     // console.log(props)
@@ -22,14 +23,13 @@ export default (props) => {
         } = props
 
         // console.log(props)
-
-        return (
-            <Writer 
-                {
-                    ...writers.find(value => value.id === writerId)
-                }
-            />
-        )
+        const writer = writers.find(value => value.id === writerId)
+        if (writer) {
+            return <Writer {...writer} />
+        }
+        
+        // return <Redirect to='/404' />
+        return <NotFound notFoundValue={writerId} />
     }
 
     let _renderSelectWriter = (props) => (

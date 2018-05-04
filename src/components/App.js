@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react'
-import { BrowserRouter as Router, NavLink as Link, Route } from 'react-router-dom'
+import { BrowserRouter as Router, NavLink as Link, Route, Switch } from 'react-router-dom'
 
 import Writers from './writers'
+import NotFound from './errors/404'
 
 class App extends Component {
     state = {
@@ -46,9 +47,12 @@ class App extends Component {
                         </li>
                     </ul>
 
-                    <Route exact path='/' render={this._rnderHome} />
-                    <Route path='/writers' render={this._rnderWriter} />
+                    <Switch>
+                        <Route exact path='/' render={this._rnderHome} />
+                        <Route path='/writers' render={this._rnderWriter} />
 
+                        <Route component={NotFound} />
+                    </Switch>
                     
                 </Fragment>
             </Router>
