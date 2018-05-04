@@ -10,9 +10,8 @@ export default (props) => {
 
     return (
         <Fragment>
-            <h1>{title}</h1>
-            <h3>{published}</h3>
-            <p>{description}</p>
+            <h2>{title} {published ? `(${published})` : ''}</h2>
+            <p>{description ? description : 'No Description'}</p>
         </Fragment>
     )
 }
