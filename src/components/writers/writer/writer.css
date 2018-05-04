@@ -14,3 +14,11 @@
     position: absolute;
     left: 320px;
 }
+.writerBook {
+    display: flex;
+    flex-direction: column;
+}
+.book {
+    position: absolute;
+    top: 620px;
+}

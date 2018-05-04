@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { BrowserRouter as Router, NavLink as Link, Route, Switch } from 'react-router-dom'
 
 import Writers from './writers'
-import NotFound from './errors/404'
+import { NotFound } from './errors'
 
 class App extends Component {
     state = {
@@ -12,7 +12,7 @@ class App extends Component {
     async componentDidMount() {
         const writers = await(
             await(
-                fetch('http://localhost:3004/writers')        
+                fetch('http://localhost:3004/writers?_embed=texts')
             )
         ).json()
         
